@@ -1,43 +1,51 @@
-# doxyjs
+# ceridiandoxyjs
 
-A simple CLI tool for converting Javascript into psudo C++ for [Doxygen](http://www.stack.nl/~dimitri/doxygen/), inspired by [doxyqml](https://github.com/agateau/doxyqml).
+A simple CLI tool for converting Javascript into pseudo C++ for [Doxygen](https://doxygen.nl/), inspired by [doxyqml](https://github.com/agateau/doxyqml).
+
+This is a fork of dmitrytoropchin's unmaintained [DoxyJS](https://github.com/dmitrytoropchin/doxyjs) source code. The intent of this repo is to continue development and implement quality of life upgrades to DoxyJS.
 
 ## Installation
 
-Install it once globally via [`npm`](https://www.npmjs.com/package/doxyjs):
+Install it locally by pulling down master and then running an npm install:
 
 ```sh
-npm install -g doxyjs
+npm install -g <path to repo>/ceridiandoxyjs
 ```
 
-Or via [`yarn`](https://yarnpkg.com/en/package/doxyjs):
+Then add ceridiandoxyjs to your Windows PATH variable. 
 
 ```sh
-yarn global add doxyjs
+C:\Program Files\nodejs\node_modules\ceridiandoxyjs\src
+```
+
+To install this module directly from the Github repo (note: does not work on Windows), run the following npm install:
+
+```sh
+npm install -g https://github.com/CeridianWeb/ceridiandoxyjs
 ```
 
 ## Usage
 
 ### CLI
 
-You can use `doxyjs` as standalone CLI tool to generate pseudo C++ code from javascript source files.
+You can use `ceridiandoxyjs` as standalone CLI tool to generate pseudo C++ code from javascript source files.
 
 #### Example
 
 Printing pseudo C++ representation of Javascript source to standard output:
 
 ```sh
-doxyjs --encoding utf8 --line-break lf --lang ru file.js
+ceridiandoxyjs --encoding utf8 --line-break lf file.js
 ```
 
 #### Options
 
 ```sh
-$ doxyjs --help
+$ ceridiandoxyjs --help
 
-  Usage: doxyjs [options] [files...]
+  Usage: ceridiandoxyjs [options] [files...]
 
-  Converts Javascript into psudo C++ for Doxygen
+  Converts Javascript into pseudo C++ for Doxygen
 
   Options:
 
@@ -45,28 +53,19 @@ $ doxyjs --help
     -V, --version                  output the version number
     -e, --encoding <encoding>      source files encoding (utf8 by default)
     -b, --line-break <line break>  line break symbol [lf|crlf] (lf by default)
-    -l, --lang <language code>     output language (en by default)
 
 ```
 
 List of supported encodings can be found [here](https://nodejs.org/api/buffer.html#buffer_buffers_and_character_encodings).
 
-List of supported languages:
-
-*   de
-*   en
-*   es
-*   it
-*   ru
-
 ### Doxygen Integration
 
-To use `doxyjs` with Doxygen you must make few changes to your Doxyfile.
+To use `ceridiandoxyjs` with Doxygen you must make few changes to your Doxyfile.
 
 *   Add the `.js` extension to the `FILTER_PATTERNS`:
 
     ```
-    FILTER_PATTERNS = *.js=doxyjs
+    FILTER_PATTERNS = *.js=ceridiandoxyjs
     ```
 *   Add the `.js` extension to `FILE_PATTERNS`:
 
@@ -103,7 +102,7 @@ will produce:
 
 ### Variables
 
-`doxyjs` will use `var` as default variable's type, but you can override it with `type:<YourTypeHere>`.
+`ceridiandoxyjs` will use `var` as default variable's type, but you can override it with `type:<YourTypeHere>`.
 
 ```javascript
 //! This is variable

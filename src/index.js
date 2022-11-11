@@ -25,7 +25,7 @@ program
 program.parse(process.argv);
 
 if (program.args.length === 0) {
-  console.error('doxyjs: no input files provided, aborting');
+  console.error('ceridiandoxyjs: no input files provided, aborting');
   process.exit(1);
 }
 
@@ -34,7 +34,7 @@ translator.setLocale(program.lang);
 program.args.forEach((file) => {
   fs.readFile(file, program.encoding, (error, data) => {
     if (error) {
-      console.error(`doxyjs: can't read file ${file}, aborting`);
+      console.error(`ceridiandoxyjs: can't read file ${file}, aborting`);
       process.exit(1);
     }
 
